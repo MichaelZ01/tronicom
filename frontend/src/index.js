@@ -5,14 +5,14 @@ import ReactDOM from 'react-dom';
 import App from './App.js'
 
 class AppWrapper extends React.Component {
-    render() {
-        return (
-            <App />
-        )
-    }
+  render() {
+    return (
+      <App />
+    )
+  }
 }
 
 ReactDOM.render(
-    <AppWrapper />,
-    document.getElementById('root')
+  <AppWrapper />,
+  document.getElementById('root')
 );

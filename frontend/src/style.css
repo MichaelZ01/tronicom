@@ -67,3 +67,7 @@ a.brand {
     justify-content: space-between;
     align-items: center;
 }
+
+.row.center {
+    justify-content: center;
+}
