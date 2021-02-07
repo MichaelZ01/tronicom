@@ -9,11 +9,11 @@ class Header extends React.Component {
           <span>
             <i className='fa fa-music'></i>
           </span>
-          <a href='index.html'>Tronicom</a>
+          <a href='/'>Tronicom</a>
         </div>
         <div>
-          <a href='cart.html'>Cart</a>
-          <a href='signin.html'> Sign in</a>
+          <a href='/cart'>Cart</a>
+          <a href='/signin'> Sign in</a>
         </div>
       </header>
     );
