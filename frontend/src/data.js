@@ -8,7 +8,7 @@ const data = {
       price: 17.99,
       artist: 'Porter Robinson',
       rating: 5,
-      numReviews: 100,
+      numReviews: 53,
       description: 'Best Album ever',
     },
     {
@@ -18,8 +18,8 @@ const data = {
       image: '/images/p2.jpg',
       price: 41.87,
       artist: 'Madeon',
-      rating: 4.5,
-      numReviews: 100,
+      rating: 3.5,
+      numReviews: 29,
       description: 'Awesome album',
     },
     {
@@ -29,8 +29,8 @@ const data = {
       image: '/images/p3.jpg',
       price: 9.99,
       artist: 'Madeon',
-      rating: 5,
-      numReviews: 100,
+      rating: 4.5,
+      numReviews: 85,
       description: 'Best Album ever',
     },
     {
@@ -40,8 +40,8 @@ const data = {
       image: '/images/p4.jpg',
       price: 99.99,
       artist: 'Daft Punk',
-      rating: 4.5,
-      numReviews: 100,
+      rating: 4,
+      numReviews: 320,
       description: 'One of the greatest albums',
     },
     {
@@ -51,8 +51,8 @@ const data = {
       image: '/images/p5.jpg',
       price: 13.29,
       artist: 'Avicii',
-      rating: 5,
-      numReviews: 100,
+      rating: 4,
+      numReviews: 243,
       description: 'Very nice album',
     },
     {
@@ -63,7 +63,7 @@ const data = {
       price: 11.88,
       artist: 'Charlie Puth',
       rating: 4,
-      numReviews: 100,
+      numReviews: 158,
       description: 'Very nice album',
     },
   ]
