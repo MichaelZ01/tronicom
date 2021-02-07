@@ -1,3 +1,4 @@
+/* Global */
 html, body {
     margin: 0;
     height: 100%;
@@ -17,6 +18,7 @@ body {
     height: 100%;
 }
 
+/* Layout*/
 .grid-container {
     display: grid;
     grid-template-areas:
@@ -43,23 +45,39 @@ footer {
     background-color: #e9967a;
 }
 
+/* Common */
+
 a {
     text-decoration: none;
 }
 
-a:hover {
-    color:aqua;
+h2 {
+    font-size: 2.0rem;
+    padding: 0.5rem 0;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
 }
+
+/* Header */
 
 header a {
     color: white;
     padding: 1rem;
 }
 
-a.brand {
+header a:hover {
+    color:aqua;
+}
+
+
+.brand {
     font-size: 2rem;
     font-weight: bold;
+    margin-left: 2rem;
 }
+
+
+/* Main */
 
 .row {
     display: flex;
@@ -70,4 +88,37 @@ a.brand {
 
 .row.center {
     justify-content: center;
+}
+
+img {
+    border-radius: 0.5rem;
+}
+
+img.medium {
+    max-width: 25rem;
+    width: 100%;
+}
+
+.card {
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body > *{
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 1.5rem;
+}
+
+.rating span {
+    color: gold;
+    margin: 0.1rem;
 }
