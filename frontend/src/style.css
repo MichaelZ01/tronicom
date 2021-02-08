@@ -79,6 +79,11 @@ header a:hover {
 
 /* Main */
 
+.back {
+    color: grey;
+    font-size: 1.7rem;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -165,6 +170,19 @@ button.add {
 
 .price {
     font-size: 1.5rem;
+}
+
+.card-name {
+    font-size: 2.0rem;
+    padding: 1.0rem 0;
+    font-weight: bold;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.card-body span:hover {
+
+    color: orange;
 }
 
 /* Rating */

@@ -11,7 +11,7 @@ class App extends React.Component {
       <div className = 'grid-container'>
         <Header />
         <Main />
-        <footer>
+        <footer className='row center'>
           <div>Created by MichaelZ01</div>
         </footer>
       </div>

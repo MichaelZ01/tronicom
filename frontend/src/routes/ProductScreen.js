@@ -14,7 +14,7 @@ export default function ProductScreen(props) {
 
   return(
     <div>
-      <Link to='/'>Back to results</Link>
+      <Link to='/' className='back'><i className='fa fa-arrow-left'></i>&nbsp;Back to results</Link>
       <div className='row top'>
         <div className='col-2'>
           <img className='large' src={product.image} alt = {product.name}></img>
