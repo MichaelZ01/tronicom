@@ -1,18 +1,19 @@
 import React from 'react';
-import Product from './Product';
-import data from '../data';
+import { Route, Switch } from 'react-router-dom';
+import ProductScreen from '../routes/ProductScreen';
+import HomeScreen from '../routes/HomeScreen';
 
 class Main extends React.Component {
   
   render() {
     return(
       <main>
-        <div className='row center'>
-          {data.products.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
-          
-        </div>
+        <Switch>
+          <Route path='/product/:id' component={ProductScreen}></Route>
+          <Route path='/'>
+            <HomeScreen />
+          </Route>
+        </Switch>
       </main>
     );
   }
