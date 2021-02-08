@@ -90,6 +90,18 @@ header a:hover {
     justify-content: center;
 }
 
+.row.top {
+    align-items: flex-start;
+}
+
+.col-1 {
+    flex: 1 1 25rem;
+}
+
+.col-2 {
+    flex: 2 1 50rem;
+}
+
 img {
     border-radius: 0.5rem;
 }
@@ -98,6 +110,43 @@ img.medium {
     max-width: 25rem;
     width: 100%;
 }
+
+img.large {
+    max-width: 80rem;
+    width: 90%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+li {
+    margin-top: 1.5rem;
+}
+
+button {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem #a4a4a4 solid;
+    font-size: 1.6rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: black;
+}
+
+button.primary {
+    background-color: cyan;
+}
+
+button.add {
+    width: 100%;
+}
+/* Product card */
 
 .card {
     border: 0.1rem #c0c0c0 solid;
@@ -118,6 +167,8 @@ img.medium {
     font-size: 1.5rem;
 }
 
+/* Rating */
+
 .rating span {
     color: gold;
     margin: 0.1rem;
@@ -125,4 +176,13 @@ img.medium {
 
 .rating span:last-child {
     color:black;
+    margin-left: 1rem;
+}
+
+.inStock {
+    color: green;
+}
+
+.outStock{
+    color: red;
 }
