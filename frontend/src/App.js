@@ -12,7 +12,7 @@ class App extends React.Component {
         <Header />
         <Main />
         <footer>
-          <div>Footer</div>
+          <div>Created by MichaelZ01</div>
         </footer>
       </div>
     );

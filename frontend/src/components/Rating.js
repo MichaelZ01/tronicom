@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Displays the rating of a product
 export default function Rating(props) {
   const { rating, numReviews } = props
 

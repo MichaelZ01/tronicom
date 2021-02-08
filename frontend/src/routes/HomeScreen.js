@@ -7,6 +7,10 @@ import MessageBox from '../components/MessageBox';
 export default function HomeScreen() {
 
   // React hook: Default value: [], Use setProducts to change state
+  /*
+  ADD COMMENT
+
+  */
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

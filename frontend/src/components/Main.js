@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import ProductScreen from '../routes/ProductScreen';
 import HomeScreen from '../routes/HomeScreen';
 
+// Main view of page
 class Main extends React.Component {
   
   render() {

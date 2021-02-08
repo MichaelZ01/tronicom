@@ -1,6 +1,7 @@
 import React from 'react';
 import Rating from './Rating';
 
+// Display a card of a product
 export default function Product(props) {
 
   const { product } = props;
