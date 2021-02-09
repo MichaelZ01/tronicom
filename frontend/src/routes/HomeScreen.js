@@ -11,7 +11,7 @@ import { listProduct } from '../redux/actions';
   - useState: State Hook -> 
       Similar to a state class with a constructor state and this.setState
   - useEffect: Effect Hook -> 
-      (componentDidMount, componentDidUpdate, componentWillUnmount)
+      componentDidMount, componentDidUpdate, componentWillUnmount combined
   - useSelector: Extract data from Redux store ->
       Approximately equivalent to the mapStateToProps argument to connect
   */
@@ -20,6 +20,9 @@ export default function HomeScreen() {
 
   // Redux implementation
   const dispatch = useDispatch();
+
+  // useSelector subscribes to the store and runs the selector whenever an action
+  // is dispatched
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
