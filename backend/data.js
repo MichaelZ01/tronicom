@@ -10,7 +10,9 @@ const data = {
       artist: 'Porter Robinson',
       rating: 5,
       numReviews: 53,
-      description: 'Best Album ever',
+      description: "Debut studio album of Porter, the album explores new sounds\
+       while having a heavy japanese influence. One of my all time favourite albums.\
+       I'm incredibly excited for his 2nd album coming out this year",
     },
     {
       _id: '2',
@@ -22,7 +24,8 @@ const data = {
       artist: 'Madeon',
       rating: 3.5,
       numReviews: 29,
-      description: 'Awesome album',
+      description: "Debut studio album of Madeon. Madeon's style is very iconic \
+      and almost every song is a banger. Great album.",
     },
     {
       _id: '3',
@@ -34,7 +37,8 @@ const data = {
       artist: 'Madeon',
       rating: 4.5,
       numReviews: 85,
-      description: 'Best Album ever',
+      description: "Madeon's second album, I daresay even better than the first\
+      his songs have a way of being very catchy while also mesmerizing",
     },
     {
       _id: '4',
@@ -46,7 +50,9 @@ const data = {
       artist: 'Daft Punk',
       rating: 4,
       numReviews: 320,
-      description: 'One of the greatest albums',
+      description: "One of the most influencial EDM albums of all time. Even if\
+      you haven't heard the whole album you will have heard some of the singles.\
+      Daft punk truly are legends in the genre",
     },
     {
       _id: '5',
@@ -58,7 +64,9 @@ const data = {
       artist: 'Avicii',
       rating: 4,
       numReviews: 243,
-      description: 'Very nice album',
+      description: 'RIP. One of my favourite Avicii albums. The songs in this\
+      album really resonate with me and at a time where I was unsure who I was\
+      or what I wanted to be.',
     },
     {
       _id: '6',
@@ -70,7 +78,8 @@ const data = {
       artist: 'Charlie Puth',
       rating: 4,
       numReviews: 158,
-      description: 'Very nice album',
+      description: 'Not exactly a EDM album but a very enjoyable album. Every poppy\
+      and every song is a earworm.',
     },
   ]
 }
