@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import CartScreen from '../routes/CartScreen';
 import ProductScreen from '../routes/ProductScreen';
 import HomeScreen from '../routes/HomeScreen';
 
@@ -10,6 +11,7 @@ class Main extends React.Component {
     return(
       <main>
         <Switch>
+          <Route path='/cart/:id?' component={CartScreen}></Route>
           <Route path='/product/:id' component={ProductScreen}></Route>
           <Route path='/'>
             <HomeScreen />

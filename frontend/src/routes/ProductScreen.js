@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailProducts } from '../redux/actions'  
@@ -11,15 +11,30 @@ export default function ProductScreen(props) {
 
   const dispatch = useDispatch();
 
-  // Gets the product from the database
+  // Gets the product from the database (REDUX)
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetail);
   const { loading, error, product } = productDetails;
 
+  // React hook (Component state)
+  // Variable: qty
+  // Setter: setQty
+  // Initial value: 1
+  const [qty, setQty] = useState(1);
 
+  // UseEffect runs when the component is rendered
   useEffect(() => {
     dispatch(detailProducts(productId));
   }, [dispatch, productId]);
+
+  // HTML5 History API
+  // - Browser's session history
+  // - push method moves to a new route
+  // - Similar to Link, in fact BrowserRouter will maintain the history stack
+  //   automatically, so no real reason to be manually updating it.
+  const addToCartHandler = () => {
+    props.history.push(`/cart/${productId}?qty=${qty}`);
+  };
 
   return(
     <div>
@@ -73,9 +88,39 @@ export default function ProductScreen(props) {
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <button className='add'>Add to Cart</button>
-                  </li>
+                  {
+                    product.stock > 0 && (
+                      <>
+                      <li>
+                        <div className='row'>
+                          <div>Quantity</div>
+                          <div>
+                            <select 
+                              value={qty} 
+                              onChange={e => setQty(e.target.value)}
+                            >
+                              {[...Array(product.stock).keys()].map(
+                                (x) => (
+                                  <option key={x+1} value={x+1} > {x+1}</option>
+                                )
+                              )}
+                            </select>
+                          </div>
+
+                        </div>
+                      </li>
+                      <li>
+                          <button 
+                            onClick={addToCartHandler}
+                            className='add'
+                          >
+                            Add to Cart
+                          </button>
+                      </li>
+                      </>
+                    )
+                  }
+
                 </ul>
               </div>
             </div>
