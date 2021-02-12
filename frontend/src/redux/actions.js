@@ -5,7 +5,8 @@ import {
   FAIL_PRODUCT_REQUEST, 
   PRODUCT_DETAIL,
   SUCCESS_PRODUCT_DETAIL,
-  FAIL_PRODUCT_DETAIL
+  FAIL_PRODUCT_DETAIL,
+  CART_ADD
 } from './actionTypes'
 
 // Redux action: Event that describes something happening in the application
@@ -54,4 +55,23 @@ export const detailProducts = (productId) => async (dispatch) => {
           : error.message,
     });
   }
+}
+
+// Adds an item to the cart
+export const addToCart = (productId, qty) => async (dispatch, getState) => {
+  const { data } = await Axios.get(`/api/products/${productId}`);
+  dispatch({
+    type: CART_ADD,
+    payload: {
+      name: data.name,
+      image: data.image,
+      price: data.price,
+      stock: data.stock,
+      product: data._id,
+      qty,
+    }
+  })
+
+  // Refreshing page does not lose current cart items
+  localStorage.setItem('cartItems', JSON.stringify(getState().cartAdd.cartItems));
 }
