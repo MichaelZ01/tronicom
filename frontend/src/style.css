@@ -99,6 +99,10 @@ header a:hover {
     align-items: flex-start;
 }
 
+.row.cart {
+    font-size: 2.0rem;
+}
+
 .col-1 {
     flex: 1 1 25rem;
 }
@@ -107,8 +111,17 @@ header a:hover {
     flex: 2 1 50rem;
 }
 
+.min-30 {
+    min-width: 30;
+}
+
 img {
     border-radius: 0.5rem;
+}
+
+img.small {
+    max-width: 10rem;
+    width: 100%;
 }
 
 img.medium {

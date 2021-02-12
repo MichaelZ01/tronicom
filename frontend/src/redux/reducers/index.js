@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import productReducer from './productsReducer';
-import productDetailReducer from './productDetailReducer';
-import cartReducer from './cartReducer';
+import { productsReducer } from './productsReducer';
+import { productDetailReducer } from './productDetailReducer';
+import { cartReducer } from './cartReducer';
 
 // Root reducer
 export default combineReducers({
-  productList: productReducer,
+  productList: productsReducer,
   productDetail: productDetailReducer,
   cartAdd: cartReducer,
 });

@@ -10,7 +10,7 @@ const initialState = {
 }
 
 // Product Reducer
-export default function(state = initialState, action) {
+export function productsReducer (state = initialState, action) {
   switch(action.type) {
     case PRODUCT_REQUEST:
       return {

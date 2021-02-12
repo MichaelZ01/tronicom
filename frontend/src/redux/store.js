@@ -10,7 +10,7 @@ import rootReducer from './reducers'
 //     is used to support async actions
 
 const initialState = {
-    cart: {
+    cartAdd: {
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],

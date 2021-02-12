@@ -8,9 +8,6 @@ import { useSelector } from 'react-redux';
 // Main view of page
 export default function Main(props)  {
   
-  const cart = useSelector(state => state.cart);
-  const { cartItems } = cart;
-
   return(
     <main>
       <Switch>

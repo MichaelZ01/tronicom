@@ -4,7 +4,8 @@ const initialState = {
   cartItems: [],
 }
 
-export default function(state = initialState, action) {
+// Card reducer
+export function cartReducer (state = initialState, action) {
   switch(action.type) {
     case CART_ADD:
       const item = action.payload;
@@ -12,7 +13,7 @@ export default function(state = initialState, action) {
       if(hasItem) {
         return {
           ...state,
-          cartItems: state.cartItems.map(x => 
+          cartItems: state.cartItems.map( (x) => 
             x.product === hasItem.product ? item : x
           ),
         };

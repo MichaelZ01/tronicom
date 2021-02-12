@@ -10,7 +10,7 @@ const initialState = {
 }
 
 // Product Detail Reducer
-export default function(state = initialState, action) {
+export function productDetailReducer (state = initialState, action) {
   switch(action.type) {
     case PRODUCT_DETAIL:
       return {
