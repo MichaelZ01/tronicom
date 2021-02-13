@@ -9,20 +9,14 @@ import Rating from '../components/Rating';
 // Renders the page for a specific product
 export default function ProductScreen(props) {
 
-  const dispatch = useDispatch();
-
-  // Gets the product from the database (REDUX)
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetail);
   const { loading, error, product } = productDetails;
 
-  // React hook (Component state)
-  // Variable: qty
-  // Setter: setQty
   // Initial value: 1
   const [qty, setQty] = useState(1);
 
-  // UseEffect runs when the component is rendered
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailProducts(productId));
   }, [dispatch, productId]);
@@ -120,11 +114,9 @@ export default function ProductScreen(props) {
                       </>
                     )
                   }
-
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
       )} 
