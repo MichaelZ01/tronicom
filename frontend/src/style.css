@@ -161,7 +161,7 @@ button.primary {
     background-color: cyan;
 }
 
-button.add {
+button.add, button.checkout{
     width: 100%;
 }
 /* Product card */

@@ -6,7 +6,8 @@ import {
   PRODUCT_DETAIL,
   SUCCESS_PRODUCT_DETAIL,
   FAIL_PRODUCT_DETAIL,
-  CART_ADD
+  CART_ADD,
+  CART_REMOVE
 } from './actionTypes'
 
 // Redux action: Event that describes something happening in the application
@@ -73,5 +74,15 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
   })
 
   // Refreshing page does not lose current cart items
+  localStorage.setItem('cartItems', JSON.stringify(getState().cartAdd.cartItems));
+}
+
+// Removes an item from the card
+export const removeFromCart = (productId) => async (dispatch, getState) => {
+  dispatch({
+    type: CART_REMOVE,
+    payload: productId
+  });
+
   localStorage.setItem('cartItems', JSON.stringify(getState().cartAdd.cartItems));
 }

@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
-import { addToCart } from '../redux/actions';
+import { addToCart, removeFromCart } from '../redux/actions';
 
 export default function CartScreen(props) {
 
   const productId = props.match.params.id;
-  const dispatch = useDispatch();
 
   // Location is the current address of the app
   const qty = props.location.search
@@ -17,6 +16,7 @@ export default function CartScreen(props) {
   const cart = useSelector(state => state.cartAdd);
   const { cartItems } = cart;
 
+  const dispatch = useDispatch();
   useEffect(() => {
     if(productId) {
       dispatch(addToCart(productId, qty));
@@ -25,7 +25,7 @@ export default function CartScreen(props) {
     
   // Remove item from cart
   const removeFromCartHandler = (id) => {
-
+    dispatch(removeFromCart(id));
   }
 
   return (
@@ -83,6 +83,29 @@ export default function CartScreen(props) {
 
           </ul>
         )}
+      </div>
+      <div className='col-1'>
+        <div className='card card-body'>
+          <ul>
+            <li>
+              <h2>
+                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
+                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+              </h2>
+            </li>
+            <li>
+              <button 
+                type='button' 
+                className='checkout'
+                disabled={cartItems.length === 0
+              }>
+                <Link to='/signin?redirect=shipping'>Checkout</Link>
+              </button>
+            </li>
+          </ul>
+
+        </div>
+
       </div>
     </div>
   );
