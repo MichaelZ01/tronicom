@@ -1,7 +1,22 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+  users: [
+    {
+      name: 'Michael',
+      email: 'admin@email.com',
+      password: bcrypt.hashSync('password', 8),
+      isAdmin: true,
+    },
+    {
+      name: 'Sam',
+      email: 'user@email.com',
+      password: bcrypt.hashSync('slightlyBetterPassword', 8),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: '1',
       name: 'Worlds',
       category: 'Music',
       image: '/images/p1.jpg',
@@ -15,7 +30,6 @@ const data = {
        I'm incredibly excited for his 2nd album coming out this year",
     },
     {
-      _id: '2',
       name: 'Adventure',
       category: 'Music',
       image: '/images/p2.jpg',
@@ -28,7 +42,6 @@ const data = {
       and almost every song is a banger. Great album.",
     },
     {
-      _id: '3',
       name: 'Good Faith',
       category: 'Music',
       image: '/images/p3.jpg',
@@ -41,7 +54,6 @@ const data = {
       his songs have a way of being very catchy while also mesmerizing",
     },
     {
-      _id: '4',
       name: 'Discovery',
       category: 'Music',
       image: '/images/p4.jpg',
@@ -55,7 +67,6 @@ const data = {
       Daft punk truly are legends in the genre",
     },
     {
-      _id: '5',
       name: 'Stories',
       category: 'Music',
       image: '/images/p5.jpg',
@@ -69,7 +80,6 @@ const data = {
       or what I wanted to be.',
     },
     {
-      _id: '6',
       name: 'Voicenotes',
       category: 'Music',
       image: '/images/p6.jpg',

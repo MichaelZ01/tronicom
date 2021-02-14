@@ -1,30 +1,30 @@
 import express from 'express'
+import mongoose from 'mongoose';
+
 // File extensions are required for backend import
-import data from './data.js';
+import productRouter from './Routers/productRouter.js';
+import userRouter from './Routers/userRouter.js';
 
 // Express server is initialised
 const app = express();
+mongoose.connect(process.env.MONGODB_RUL || 'mongodb://localhost/tronicom', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+})
 
 // Port is either environment variable PORT or is by default 5000
 const port = process.env.PORT || 5000;
 
-// :id must be above products as any match will be successfull
-app.get('/api/products/:id', (req, res) => {
-  const product = data.products.find((x) => x._id === req.params.id);
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({message: 'Product not found'})
-  }
-});
-
-// Returns the product database
-app.get('/api/products', (req, res) => {
-  res.send(data.products)
-});
+app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
 
 app.get('/', (req, res) => {
   res.send('Server is ready');
+});
+
+app.use((err, req, res, next) => {
+  res.stats(500).send({message: err.message});
 });
 
 // Prints to console what port the server is 
