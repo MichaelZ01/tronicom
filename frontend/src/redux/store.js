@@ -10,6 +10,11 @@ import rootReducer from './reducers'
 //     is used to support async actions
 
 const initialState = {
+    userSignin: {
+        userInfo: localStorage.getItem('userInfo')
+            ? JSON.parse(localStorage.getItem('userInfo'))
+            : null,
+    },
     cartAdd: {
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
@@ -17,8 +22,9 @@ const initialState = {
     },
 };
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default createStore(
     rootReducer, 
     initialState, 
-    compose(applyMiddleware(thunk))
+    composeEnhancer(applyMiddleware(thunk))
 );
