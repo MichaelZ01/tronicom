@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import CartScreen from '../routes/CartScreen';
 import ProductScreen from '../routes/ProductScreen';
 import HomeScreen from '../routes/HomeScreen';
-import { useSelector } from 'react-redux';
 import SigninScreen from '../routes/SigninScreen';
 import RegisterScreen from '../routes/RegisterScreen';
 
