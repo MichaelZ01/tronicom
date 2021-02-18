@@ -11,7 +11,6 @@ export default function Header() {
 
   const dispatch = useDispatch();
   const signoutHandler = () => {
-    console.log('pressed');
     dispatch(signout());
   }
 

@@ -28,6 +28,10 @@ export default function CartScreen(props) {
     dispatch(removeFromCart(id));
   }
 
+  const checkoutHandler = () => {
+    props.history.push('/signin?redirect=shipping');
+  };
+
   return (
     <div className='row top'>
       <div className='col-2'>
@@ -97,9 +101,10 @@ export default function CartScreen(props) {
               <button 
                 type='button' 
                 className='checkout'
+                onClick={checkoutHandler}
                 disabled={cartItems.length === 0
               }>
-                <Link to='/signin?redirect=shipping'>Checkout</Link>
+                Checkout
               </button>
             </li>
           </ul>

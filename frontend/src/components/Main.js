@@ -5,6 +5,7 @@ import ProductScreen from '../routes/ProductScreen';
 import HomeScreen from '../routes/HomeScreen';
 import { useSelector } from 'react-redux';
 import SigninScreen from '../routes/SigninScreen';
+import RegisterScreen from '../routes/RegisterScreen';
 
 // Main view of page
 export default function Main(props)  {
@@ -15,6 +16,7 @@ export default function Main(props)  {
         <Route path='/cart/:id?' component={CartScreen}></Route>
         <Route path='/product/:id' component={ProductScreen}></Route>
         <Route path='/signin' component={SigninScreen}></Route>
+        <Route path='/register' component={RegisterScreen}></Route>
         <Route path='/'>
           <HomeScreen />
         </Route>

@@ -222,6 +222,10 @@ button.add, button.checkout{
 
 /* Alerts */
 
+.loading {
+   display: block !important; 
+}
+
 .alert {
     padding: 1rem;
     border: 0.1rem solid transparent;
