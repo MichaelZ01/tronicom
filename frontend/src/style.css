@@ -377,3 +377,16 @@ button.add, button.checkout{
 #loader-wrapper .loader-section.section-right {
     right: 0;
 }
+
+.checkout-steps > div {
+    border-top: 0.3rem grey solid;
+    color: grey;
+    flex: 1;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.checkout-steps > div.active {
+    border-top-color: orange;
+    color: orange;
+}

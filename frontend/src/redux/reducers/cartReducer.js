@@ -1,4 +1,4 @@
-import { CART_ADD, CART_REMOVE } from "../actionTypes";
+import { CART_ADD, CART_REMOVE, CART_SAVE_SHPIPING_ADDRESS } from "../actionTypes";
 
 const initialState = {
   cartItems: [],
@@ -29,6 +29,11 @@ export function cartReducer (state = initialState, action) {
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       };
     
+    case CART_SAVE_SHPIPING_ADDRESS:
+      return {
+        ...state,
+        shippingAddress: action.payload,
+      };
     default:
       return state;
   }

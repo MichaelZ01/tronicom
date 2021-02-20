@@ -14,7 +14,8 @@ import {
   USER_SIGNOUT,
   USER_REGISTER_REQUEST,
   USER_REGISTER_FAIL,
-  USER_REGISTER_SUCCESS
+  USER_REGISTER_SUCCESS,
+  CART_SAVE_SHPIPING_ADDRESS
 } from './actionTypes'
 
 // Redux action: Event that describes something happening in the application
@@ -152,4 +153,12 @@ export const signout = () => (dispatch) => {
   dispatch({
     type: USER_SIGNOUT,
   });
+}
+
+export const saveShippingAddress= (data) => (dispatch) => {
+  dispatch({
+    type: CART_SAVE_SHPIPING_ADDRESS,
+    payload: data
+  });
+  localStorage.setItem('shippingAddress', JSON.stringify(data));
 }
