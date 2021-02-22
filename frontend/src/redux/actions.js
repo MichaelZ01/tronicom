@@ -15,7 +15,8 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_FAIL,
   USER_REGISTER_SUCCESS,
-  CART_SAVE_SHPIPING_ADDRESS
+  CART_SAVE_SHPIPING_ADDRESS,
+  CART_SAVE_PAYMENT_METHOD
 } from './actionTypes'
 
 // Redux action: Event that describes something happening in the application
@@ -150,15 +151,23 @@ export const register = (name, email, password) => async(dispatch) => {
 export const signout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   localStorage.removeItem('cartItems');
+  localStorage.removeItem('shippingAddress')
   dispatch({
     type: USER_SIGNOUT,
   });
 }
 
-export const saveShippingAddress= (data) => (dispatch) => {
+export const saveShippingAddress = (data) => (dispatch) => {
   dispatch({
     type: CART_SAVE_SHPIPING_ADDRESS,
     payload: data
   });
   localStorage.setItem('shippingAddress', JSON.stringify(data));
+}
+
+export const savePaymentMethod = (data) => (dispatch) => {
+  dispatch({
+    type: CART_SAVE_PAYMENT_METHOD,
+    payload: data
+  });
 }

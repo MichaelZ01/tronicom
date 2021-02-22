@@ -256,7 +256,7 @@ button.add, button.checkout{
 
 .form label {
     margin: 1rem 0;
-    display: block;
+    float: left;
 }
 
 .form input {

@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 // File extensions are required for backend import
 import productRouter from './Routers/productRouter.js';
 import userRouter from './Routers/userRouter.js';
+import orderRouter from './Routers/orderRouter.js';
 
 // Express server is initialised
 dotenv.config();
@@ -22,6 +23,7 @@ const port = process.env.PORT || 5000;
 
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
 
 app.get('/', (req, res) => {
   res.send('Server is ready');
