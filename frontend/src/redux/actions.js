@@ -16,7 +16,11 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_SUCCESS,
   CART_SAVE_SHPIPING_ADDRESS,
-  CART_SAVE_PAYMENT_METHOD
+  CART_SAVE_PAYMENT_METHOD,
+  ORDER_CREATE_REQUEST,
+  ORDER_CREATE_FAIL,
+  ORDER_CREATE_SUCCESS,
+  CART_EMPTY
 } from './actionTypes'
 
 // Redux action: Event that describes something happening in the application
@@ -170,4 +174,33 @@ export const savePaymentMethod = (data) => (dispatch) => {
     type: CART_SAVE_PAYMENT_METHOD,
     payload: data
   });
+}
+
+export const createOrder = (order) => async (dispatch, getState) => {
+  dispatch({
+    type: ORDER_CREATE_REQUEST,
+    payload: order
+  });
+  try {
+    const {
+      userSignin: { userInfo }
+    } = getState();
+    const {data} = await Axios.post('/api/orders', order, {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    })
+    dispatch({ type: ORDER_CREATE_SUCCESS, payload: data.order });
+    dispatch({ type: CART_EMPTY});
+    localStorage.removeItem('cartItems');
+  } catch(error) {
+    dispatch({
+      type: ORDER_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.message 
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+
 }
