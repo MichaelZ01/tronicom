@@ -1,10 +1,16 @@
-import { CART_ADD, CART_EMPTY, CART_REMOVE, CART_SAVE_PAYMENT_METHOD, CART_SAVE_SHPIPING_ADDRESS } from "../actionTypes";
+import { 
+  CART_ADD, 
+  CART_EMPTY, 
+  CART_REMOVE, 
+  CART_SAVE_PAYMENT_METHOD, 
+  CART_SAVE_SHPIPING_ADDRESS 
+} from "../actionTypes";
 
 const initialState = {
   cartItems: [],
 }
 
-// Card reducer
+// Cart reducer
 export function cartReducer (state = initialState, action) {
   switch(action.type) {
     case CART_ADD:

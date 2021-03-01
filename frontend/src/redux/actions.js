@@ -30,18 +30,15 @@ import {
 
 // Lists products
 export const listProduct = () => async (dispatch) => {
-  // Request for product data
   dispatch({
     type: PRODUCT_REQUEST,
   });
-  // Return data if successful
   try {
     const { data } = await Axios.get('/api/products');
     dispatch({
       type: SUCCESS_PRODUCT_REQUEST,
       payload: data
     })
-    // Return error message if not
   } catch (error) {
     dispatch({
       type: FAIL_PRODUCT_REQUEST,
@@ -52,7 +49,6 @@ export const listProduct = () => async (dispatch) => {
 
 // Gets product details
 export const detailProducts = (productId) => async (dispatch) => {
-
   dispatch({
     type: PRODUCT_DETAIL,
     payload: productId,
@@ -88,8 +84,6 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
       qty,
     }
   })
-
-  // Refreshing page does not lose current cart items
   localStorage.setItem('cartItems', JSON.stringify(getState().cartAdd.cartItems));
 }
 
@@ -99,7 +93,6 @@ export const removeFromCart = (productId) => async (dispatch, getState) => {
     type: CART_REMOVE,
     payload: productId
   });
-
   localStorage.setItem('cartItems', JSON.stringify(getState().cartAdd.cartItems));
 }
 
@@ -155,6 +148,7 @@ export const register = (name, email, password) => async(dispatch) => {
   }
 }
 
+// Signs out a user
 export const signout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   localStorage.removeItem('cartItems');
@@ -164,6 +158,7 @@ export const signout = () => (dispatch) => {
   });
 }
 
+// Adds shipping address
 export const saveShippingAddress = (data) => (dispatch) => {
   dispatch({
     type: CART_SAVE_SHPIPING_ADDRESS,
@@ -172,6 +167,7 @@ export const saveShippingAddress = (data) => (dispatch) => {
   localStorage.setItem('shippingAddress', JSON.stringify(data));
 }
 
+// Adds payment method
 export const savePaymentMethod = (data) => (dispatch) => {
   dispatch({
     type: CART_SAVE_PAYMENT_METHOD,
@@ -179,6 +175,7 @@ export const savePaymentMethod = (data) => (dispatch) => {
   });
 }
 
+// Creates an order
 export const createOrder = (order) => async (dispatch, getState) => {
   dispatch({
     type: ORDER_CREATE_REQUEST,
@@ -207,27 +204,28 @@ export const createOrder = (order) => async (dispatch, getState) => {
   }
 }
 
+// Returns the details of an order
 export const detailsOrder = (orderId) => async (dispatch, getState) => {
-    dispatch({
-      type: ORDER_DETAILS_REQUEST,
-      payload: orderId
+  dispatch({
+    type: ORDER_DETAILS_REQUEST,
+    payload: orderId
+  });
+  const { 
+    userSignin: {userInfo} 
+  } = getState();
+  try {
+    const { data } = await Axios.get(`/api/orders/${orderId}`, {
+      headers: {Authorization: `Bearer ${userInfo.token}`},
     });
-    const { 
-      userSignin: {userInfo} 
-    } = getState();
-    try {
-      const { data } = await Axios.get(`/api/orders/${orderId}`, {
-        headers: {Authorization: `Bearer ${userInfo.token}`},
-      });
-      dispatch({type: ORDER_DETAILS_SUCCESS, payload: data});
-    } catch(error) {
-      const message = 
-        error.response && error.response.data.message 
-        ? error.response.data.message
-        : error.message;
-      dispatch({
-        type: ORDER_DETAILS_FAIL,
-        payload: message,
-      })
-    }
+    dispatch({type: ORDER_DETAILS_SUCCESS, payload: data});
+  } catch(error) {
+    const message = 
+      error.response && error.response.data.message 
+      ? error.response.data.message
+      : error.message;
+    dispatch({
+      type: ORDER_DETAILS_FAIL,
+      payload: message,
+    })
+  }
 }

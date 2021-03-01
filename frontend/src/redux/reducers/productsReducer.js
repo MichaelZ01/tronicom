@@ -9,7 +9,7 @@ const initialState = {
   products: [],
 }
 
-// Product Reducer
+// Get Product Reducer
 export function productsReducer (state = initialState, action) {
   switch(action.type) {
     case PRODUCT_REQUEST:

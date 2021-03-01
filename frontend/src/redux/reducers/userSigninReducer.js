@@ -5,6 +5,7 @@ import {
   USER_SIGNOUT
 } from "../actionTypes";
 
+// User sign in reducer
 export const userSigninReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_SIGNIN_REQUEST:

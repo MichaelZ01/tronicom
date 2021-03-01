@@ -4,6 +4,7 @@ import {
   USER_REGISTER_SUCCESS, 
 } from "../actionTypes";
 
+// User register reducer
 export const userRegisterReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_REGISTER_REQUEST:

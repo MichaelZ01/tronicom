@@ -26,6 +26,7 @@ const initialState = {
     },
 };
 
+// composeEnhancer is required to use redux devtools
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default createStore(
     rootReducer, 

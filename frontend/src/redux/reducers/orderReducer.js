@@ -8,6 +8,7 @@ import {
   ORDER_DETAILS_SUCCESS
 } from "../actionTypes";
 
+// Create Order Reducer
 export const orderCreateReducer = (state = {}, action) => {
   switch(action.type) {
     case ORDER_CREATE_REQUEST:
@@ -33,6 +34,7 @@ export const orderCreateReducer = (state = {}, action) => {
   }
 }
 
+// Get Order Details Reducer
 export const orderDetailsReducer = (state = {loading: true, order: {}}, action) => {
   switch(action.type) {
     case ORDER_DETAILS_REQUEST:
