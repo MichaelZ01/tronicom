@@ -1,5 +1,5 @@
 # Tronicom
 ### A musical electronic-commerce website
+#### Used: ReactJS, Redux, Express, MongoDB
 
-Note: Products are placeholders and links will be provided to purchase actual
-product
+Note: Products are placeholders 
