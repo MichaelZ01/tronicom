@@ -4,7 +4,7 @@ import { productDetailReducer } from './productDetailReducer';
 import { cartReducer } from './cartReducer';
 import { userSigninReducer } from './userSigninReducer';
 import { userRegisterReducer } from './userRegisterReducer';
-import { orderCreateReducer } from './orderReducer';
+import { orderCreateReducer, orderDetailsReducer } from './orderReducer';
 
 // Root reducer
 export default combineReducers({
@@ -14,4 +14,5 @@ export default combineReducers({
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
   orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
 });

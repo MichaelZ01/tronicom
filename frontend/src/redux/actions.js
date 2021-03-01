@@ -20,7 +20,10 @@ import {
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_FAIL,
   ORDER_CREATE_SUCCESS,
-  CART_EMPTY
+  CART_EMPTY,
+  ORDER_DETAILS_FAIL,
+  ORDER_DETAILS_SUCCESS,
+  ORDER_DETAILS_REQUEST
 } from './actionTypes'
 
 // Redux action: Event that describes something happening in the application
@@ -202,5 +205,29 @@ export const createOrder = (order) => async (dispatch, getState) => {
           : error.message,
     })
   }
+}
 
+export const detailsOrder = (orderId) => async (dispatch, getState) => {
+    dispatch({
+      type: ORDER_DETAILS_REQUEST,
+      payload: orderId
+    });
+    const { 
+      userSignin: {userInfo} 
+    } = getState();
+    try {
+      const { data } = await Axios.get(`/api/orders/${orderId}`, {
+        headers: {Authorization: `Bearer ${userInfo.token}`},
+      });
+      dispatch({type: ORDER_DETAILS_SUCCESS, payload: data});
+    } catch(error) {
+      const message = 
+        error.response && error.response.data.message 
+        ? error.response.data.message
+        : error.message;
+      dispatch({
+        type: ORDER_DETAILS_FAIL,
+        payload: message,
+      })
+    }
 }

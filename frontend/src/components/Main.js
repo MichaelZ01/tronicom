@@ -8,6 +8,7 @@ import RegisterScreen from '../routes/RegisterScreen';
 import ShippingScreen from '../routes/ShippingScreen';
 import PaymentScreen from '../routes/PaymentScreen';
 import OrderScreen from '../routes/OrderScreen';
+import OrderDetails from '../routes/OrderDetails';
 
 // Main view of page
 export default function Main(props)  {
@@ -22,6 +23,7 @@ export default function Main(props)  {
         <Route path='/shipping' component={ShippingScreen}></Route>
         <Route path='/payment' component={PaymentScreen}></Route>
         <Route path='/placeorder' component={OrderScreen}></Route>
+        <Route path='/order/:id' component={OrderDetails}></Route>
         <Route path='/'>
           <HomeScreen />
         </Route>
