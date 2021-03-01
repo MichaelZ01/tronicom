@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Displays the current checkout stage
 export default function CheckoutSteps(props) {
   return (
     <div className="row checkout-steps">
