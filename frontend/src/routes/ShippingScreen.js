@@ -7,18 +7,18 @@ import CheckoutSteps from '../components/CheckoutSteps';
 // Shipping details screen
 export default function ShippingScreen(props) {
 
+  // Get state variables
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const cart = useSelector((state) => state.cartAdd);
+  const { shippingAddress } = cart;
+
   // Create state variables
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
-
-  // Get state variables
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  const cart = useSelector((state) => state.cartAdd);
-  const { shippingAddress } = cart;
 
   // If user is not signed in, redirect to sign in screen
   if (!userInfo) {
