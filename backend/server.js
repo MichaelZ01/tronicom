@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGODB_RUL || 'mongodb://localhost/tronicom', {
 // Port is either environment variable PORT or is by default 5000
 const port = process.env.PORT || 5000;
 
+// Server api routes
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);

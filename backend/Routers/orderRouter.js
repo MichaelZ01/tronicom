@@ -5,6 +5,7 @@ import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
 
+// Create order route
 orderRouter.post(
   '/',
   isAuth, 
@@ -28,6 +29,7 @@ orderRouter.post(
   })
 )
 
+// Get order details
 orderRouter.get(
   '/:id',
   isAuth,

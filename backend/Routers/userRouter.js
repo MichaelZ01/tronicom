@@ -7,6 +7,7 @@ import { generateToken } from '../utils.js';
 
 const userRouter = express.Router();
 
+// Get current users
 userRouter.get(
   '/seed', 
   expressAsyncHandler(async (req, res) => {
@@ -16,6 +17,7 @@ userRouter.get(
   })
 );
 
+// Sign in a user
 userRouter.post(
   '/signin', 
   expressAsyncHandler(async (req, res) => {
@@ -36,6 +38,7 @@ userRouter.post(
   })
 );
 
+// Register a new user
 userRouter.post(
   '/register',
   expressAsyncHandler(async (req, res) => {

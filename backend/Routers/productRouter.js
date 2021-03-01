@@ -5,6 +5,7 @@ import Product from '../models/productModel.js';
 
 const productRouter = express.Router();
 
+// Get all products
 productRouter.get(
   '/',
   expressAsyncHandler(async(req, res) => {
@@ -13,6 +14,7 @@ productRouter.get(
   }) 
 );
 
+// Get mongoDB object
 productRouter.get(
   '/seed', 
   expressAsyncHandler(async(req, res) => {
@@ -22,6 +24,7 @@ productRouter.get(
   })
 );
 
+// Get product details
 productRouter.get(
   '/:id',
   expressAsyncHandler(async(req, res) => {

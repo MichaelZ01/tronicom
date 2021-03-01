@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 
+// Initial users and products
 const data = {
   users: [
     {

@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 
+// Creates jwt token
 export const generateToken = (user) => {
   return jwt.sign(
     {
@@ -15,6 +16,7 @@ export const generateToken = (user) => {
   );
 }
 
+// Authorizes user
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if(authorization) {
