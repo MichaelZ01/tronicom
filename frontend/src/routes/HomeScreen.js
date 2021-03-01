@@ -16,11 +16,10 @@ import { listProduct } from '../redux/actions';
       Approximately equivalent to the mapStateToProps argument to connect
   */
 
-  // Renders the HomeScreen
+// Renders the HomeScreen
 export default function HomeScreen() {
 
-  // useSelector subscribes to the store and runs the selector whenever an action
-  // is dispatched, updating productList
+  // Get state variables
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
@@ -44,29 +43,4 @@ export default function HomeScreen() {
     </div>
 
   );
-
-  // Implementation without redux
-  
-  /*
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-
-  useEffect(() => {
-
-    const fetchData = async () => {
-
-      try {
-        setLoading(true)
-        const { data } = await axios.get('/api/products');
-        setLoading(false);
-        setProducts(data);
-      } catch(err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [])
-  */
 }

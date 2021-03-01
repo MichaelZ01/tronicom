@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { detailsOrder } from '../redux/actions';
 
 export default function OrderDetails(props) {
 
+  // Get state variables
   const orderId = props.match.params.id;
   const orderDetails = useSelector(state => state.orderDetails);
   const { order, loading, error } = orderDetails;

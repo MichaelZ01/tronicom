@@ -3,14 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { savePaymentMethod } from '../redux/actions';
 
+// Payment method screen
 export default function PaymentScreen(props) {
+
+  // Create state variable
+  const [ paymentMethod, setPaymentMethod ] = useState('Paypal');
+
+  // Get state variable
   const cart = useSelector(state => state.cartAdd);
   const { shippingAddress } = cart
 
+  // If user has not chosen shipping method, redirect to shipping screen
   if(!shippingAddress.address) {
     props.history.push('/shipping');
   }
-  const [ paymentMethod, setPaymentMethod ] = useState('Paypal');
+
+  // Submit payment form
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -20,8 +28,11 @@ export default function PaymentScreen(props) {
 
   return (
     <div>
-      <CheckoutSteps step1 step2 step3></CheckoutSteps>
-      <form className="form" onSubmit={submitHandler}>
+      <CheckoutSteps step1 step2 step3 />
+      <form 
+        className="form" 
+        onSubmit={submitHandler}
+      >
         <div>
           <h1>Payment Method</h1>
         </div>

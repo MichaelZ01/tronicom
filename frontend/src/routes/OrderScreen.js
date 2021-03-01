@@ -2,19 +2,21 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CheckoutSteps from '../components/CheckoutSteps';
-import { createOrder } from '../redux/actions';
 import { ORDER_CREATE_RESET } from '../redux/actionTypes';
+import { createOrder } from '../redux/actions';
+import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
+// 
 export default function OrderScreen(props) {
+
+  // Get state variables
   const cart = useSelector(state => state.cartAdd);
-  if (!cart.paymentMethod) {
-    props.history.push('/payment');
-  }
   const orderCreate = useSelector(state => state.orderCreate);
   const { loading, success, error, order } = orderCreate;
+
+  // Item cost formatting and calculations
   const round = (num) => Number(num.toFixed(2));
   cart.itemsPrice = round(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
@@ -23,17 +25,22 @@ export default function OrderScreen(props) {
   cart.taxPrice = round(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
+  // If user has not chosen payment method, redirect to payment screen
+  if (!cart.paymentMethod) {
+    props.history.push('/payment');
+  }
+
   const dispatch = useDispatch();
   const placeOrderHandler = () => {
     dispatch(createOrder({...cart, orderItems: cart.cartItems }));
   }
-
   useEffect(() => {
     if(success) {
       props.history.push(`/order/${order._id}`);
       dispatch({type: ORDER_CREATE_RESET});
     }
   }, [success, order, dispatch, props.history]);
+
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
@@ -45,7 +52,7 @@ export default function OrderScreen(props) {
                 <h2>Shipping</h2>
                 <p>
                   <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                  <strong>Adress:</strong> {cart.shippingAddress.address},
+                  <strong>Address:</strong> {cart.shippingAddress.address},
                   {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
                   {cart.shippingAddress.country}
                 </p>
@@ -125,12 +132,8 @@ export default function OrderScreen(props) {
                   Place Order
                 </button>
               </li>
-              {
-                loading && <LoadingBox></LoadingBox>
-              }
-              {
-                error && <MessageBox>{error}</MessageBox>
-              }
+              { loading && <LoadingBox></LoadingBox> }
+              { error && <MessageBox>{error}</MessageBox> }
             </ul>
           </div>
         </div>

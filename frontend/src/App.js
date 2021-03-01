@@ -4,6 +4,7 @@ import Main from './components/Main';
 
 import './style.css';
 
+// Top level component
 class App extends React.Component {
 
   render() {

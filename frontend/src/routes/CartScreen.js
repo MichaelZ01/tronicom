@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
 import { addToCart, removeFromCart } from '../redux/actions';
 
+// Current cart screen
 export default function CartScreen(props) {
 
+  // Get state variables
   const productId = props.match.params.id;
+  const cart = useSelector(state => state.cartAdd);
+  const { cartItems } = cart;
 
-  // Location is the current address of the app
+  // Get quantity
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
     : 1;
-
-  const cart = useSelector(state => state.cartAdd);
-  const { cartItems } = cart;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function CartScreen(props) {
     dispatch(removeFromCart(id));
   }
 
+  // Redirects the to shipping screen
   const checkoutHandler = () => {
     props.history.push('/signin?redirect=shipping');
   };
@@ -36,7 +38,6 @@ export default function CartScreen(props) {
     <div className='row top'>
       <div className='col-2'>
         <h1>Cart</h1>
-        
         {cartItems.length === 0 ? ( 
           <MessageBox>
             Cart is empty.
@@ -45,7 +46,6 @@ export default function CartScreen(props) {
         ): (
           <ul>
             {cartItems.map((item) => (
-              
               <li key={item.product}>
                 <div className='row cart'>
                   <img 
@@ -84,7 +84,6 @@ export default function CartScreen(props) {
                 </div>
               </li>
             ))}
-
           </ul>
         )}
       </div>
@@ -108,9 +107,7 @@ export default function CartScreen(props) {
               </button>
             </li>
           </ul>
-
         </div>
-
       </div>
     </div>
   );

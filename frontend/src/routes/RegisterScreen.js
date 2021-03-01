@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { register } from '../redux/actions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { register } from '../redux/actions';
 
+// User register screen
 export default function RegisterScreen(props) {
 
+  // Create state variables
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const dispatch = useDispatch();
 
-  const redirect = props.location.search 
-    ? props.location.search.split('=')[1]
-    : '/';
-
+  // Get state variables
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
 
+  // Submit register form
+  const dispatch = useDispatch();
   const submitHandler =(e) => {
     e.preventDefault();
     if(password !== confirmPassword) {
@@ -29,6 +30,10 @@ export default function RegisterScreen(props) {
     }
   }
 
+  // User is redirected after registering
+  const redirect = props.location.search 
+    ? props.location.search.split('=')[1]
+    : '/';
   useEffect(() => {
     if(userInfo) {
       props.history.push(redirect);
@@ -39,7 +44,8 @@ export default function RegisterScreen(props) {
     <div>
       <form 
         className="form" 
-        onSubmit={submitHandler}>
+        onSubmit={submitHandler}
+      >
         <div>
           <h1>Register</h1>
         </div>
@@ -97,7 +103,6 @@ export default function RegisterScreen(props) {
             Already Signed up? <Link to={`/signin?redirect=${redirect}`}>Sign in</Link>
           </div>
         </div>
-
       </form>
     </div>
   );

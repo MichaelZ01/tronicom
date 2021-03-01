@@ -4,11 +4,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store.js';
 
-// Top level React component
 import App from './App.js'
 
-
-// React Router
+// Top level application wrapper
 class AppWrapper extends React.Component {
   render() {
     return (
